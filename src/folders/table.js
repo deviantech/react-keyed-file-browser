@@ -10,7 +10,7 @@ class RawTableFolder extends BaseFolder {
   render() {
     const {
       isOpen, isDragging, isDeleting, isRenaming, isDraft, isOver, isSelected,
-      action, url, browserProps, connectDragPreview, depth,
+      action, url, browserProps, connectDragPreview, depth, loading,
     } = this.props
 
     const icon = browserProps.icons[isOpen ? 'FolderOpen' : 'Folder']
@@ -57,6 +57,7 @@ class RawTableFolder extends BaseFolder {
           <a onClick={this.toggleFolder}>
             {icon}
             {this.getName()}
+            {loading && <em className="loading">Loading...</em>}
           </a>
         </div>
       )
